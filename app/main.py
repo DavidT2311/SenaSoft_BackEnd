@@ -46,7 +46,3 @@ app.include_router(TiquetesRouter.router, prefix="/api/v1", tags=["Tiquetes"])
 app.include_router(PasajerosRouter.router, prefix="/api/v1", tags=["Pasajeros"])
 # Ruta pagos 
 app.include_router(PagosRouter.router, prefix="/api/v1", tags=["Pagos"])
-
-
-if __name__ == "__main__":
-    uvicorn.run("main:app", port=5000, reload=True)
