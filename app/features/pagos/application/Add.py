@@ -4,6 +4,8 @@ from app.core.unit_of_work import UnitOfWork
 from app.features.pagos.infrastructure.Repository import Repository
 # DTOs
 from app.features.pagos.DTOs.SendDTO import SendDTO
+# FastAPI
+from fastapi import HTTPException
 
 
 class Add:
@@ -12,4 +14,7 @@ class Add:
         self.repository = Repository(self.uow.session)
 
     async def execute_async(self, payment: SendDTO):
+        if (payment.monto <= 0):
+            raise HTTPException(400, "El monto es invalido") 
+
         return await self.repository.add(payment)

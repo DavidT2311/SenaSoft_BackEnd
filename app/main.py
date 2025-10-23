@@ -1,3 +1,5 @@
+# Uvicorn
+import uvicorn
 # FastAPI
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -46,5 +48,5 @@ app.include_router(PasajerosRouter.router, prefix="/api/v1", tags=["Pasajeros"])
 app.include_router(PagosRouter.router, prefix="/api/v1", tags=["Pagos"])
 
 
-# if __name__ == "__main__":
-#     uvicorn.run("main:app", port=5000, reload=True)
+if __name__ == "__main__":
+    uvicorn.run("main:app", port=5000, reload=True)
