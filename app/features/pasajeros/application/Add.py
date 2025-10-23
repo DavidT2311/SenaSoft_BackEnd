@@ -21,7 +21,7 @@ class Add:
     async def execute_async(self, passenger_list: PassengerListDTO):
         get_by_email = GetByEmail(self.uow)
 
-        if len(passenger_list) > 5:
+        if len(passenger_list.lista_pasajeros) > 5:
             raise HTTPException(400, "No se pueden agregar mas de 5 pasajeros")
         
         id_list = []
